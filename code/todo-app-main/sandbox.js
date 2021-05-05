@@ -1,9 +1,18 @@
 
 const createToDo = document.querySelector('.create-todo');
-const ul = document.querySelector('.list-todo');
-const toDo = document.querySelector('#todo');
+const submit = document.querySelector('#submit');
+const list = document.querySelector('.list');
+const input = document.querySelector('#input');
+const text = document.querySelector('#text');
 
-createToDo.addEventListener('keyup', e => {
-  e.preventDefault();
-  toDo.textContent = e.target.value;
+submit.addEventListener('click', () => {
+
+  const text = `<div>
+        <input type="checkbox" value="todo">
+        <label for="todo" id="text">${input.value}</label>
+        <span id="x">X</span
+      </div>`;
+  const position ="beforeend";
+  list.insertAdjacentHTML(position, text);
+
 });

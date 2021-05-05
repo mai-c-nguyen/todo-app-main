@@ -13,25 +13,28 @@
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
-    .list-todo {
+    .list {
       list-style-type: none;
       display: inline;
+      border: 1 solid grey;
+      box-shadow: 1 1 1 1 rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
 <body>
 
   <div class="create-todo m-5 text-center">
-    <input type="text" name="input-todo">
-    <input type="submit" name="submit">
+    <input type="text" name="input-todo" id="input">
+    <input type="submit" name="submit" id="submit">
   </div>
 
   <div>
-    <ul class="list-todo m-5 text-center">
-      <div>
-        <input type="checkbox">
-        <label for="todo" id="todo"></label>
-      </div>
+    <ul class="list m-5 text-center">
+<!--   <div>
+        <input type="checkbox" value="todo">
+        <label for="todo" id="text"></label>
+        <span id="x">x</span>
+      </div> -->
     </ul>
   </div>
 
