@@ -4,15 +4,19 @@ const submit = document.querySelector('#submit');
 const list = document.querySelector('.list');
 const input = document.querySelector('#input');
 const text = document.querySelector('#text');
-
-submit.addEventListener('click', () => {
-
-  const text = `<div>
-        <input type="checkbox" value="todo">
+const checkBox = document.querySelector('#checkbox');
+submit.addEventListener('click', e => {
+  e.preventDefault();
+  const textInput = `<div>
+        <input type="checkbox" value="todo" id="checkbox">
         <label for="todo" id="text">${input.value}</label>
-        <span id="x">X</span
+        <span id="x">&#x2715</span
       </div>`;
   const position ="beforeend";
-  list.insertAdjacentHTML(position, text);
+  list.insertAdjacentHTML(position, textInput);
+});
+
+checkBox.addEventListener('change', () => {
+  text.classlist.add('text');
 
 });
