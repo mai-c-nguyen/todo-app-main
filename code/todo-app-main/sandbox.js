@@ -16,7 +16,7 @@ submit.addEventListener('click', e => {
   list.insertAdjacentHTML(position, textInput);
 });
 
-checkBox.addEventListener('change', () => {
-  text.classlist.add('text');
+checkBox.addEventListener('click', () => {
+  checkBox.nextElementSibling.classList.toggle('text');
 
 });
