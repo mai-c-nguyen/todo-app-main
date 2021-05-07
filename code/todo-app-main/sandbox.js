@@ -36,12 +36,13 @@ const generateTemplate = todo => {
 
 };
 
-addForm.addEventListener('keyup', e => {
+addForm.addEventListener('submit', e => {
   e.preventDefault();
   const todo = addForm.add.value.trim();
+  console.log(todo);
   if(todo.length){
   generateTemplate(todo);
-  addForm.reset();
+  // addForm.reset();
   }
 
 });
@@ -51,13 +52,10 @@ list.addEventListener('click', e => {
   if(e.target.classList.contains('checkbox')){
     e.target.nextElementSibling.classList.toggle('text');
   }
-
-
-});
-
-list.addEventListener('click', e => {
   if(e.target.classList.contains('delete')){
     e.target.parentElement.remove();
   }
+
 });
+
 
