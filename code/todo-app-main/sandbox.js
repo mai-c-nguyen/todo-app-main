@@ -1,26 +1,3 @@
-
-// const createToDo = document.querySelector('.create-todo');
-// const submit = document.querySelector('#submit');
-// const list = document.querySelector('.list');
-// const input = document.querySelector('#input');
-// const text = document.querySelector('#text');
-// const checkBox = document.querySelector('#checkbox');
-// createToDO.addEventListener('click', e => {
-//   e.preventDefault();
-//   const textInput = `<div>
-//         <input type="checkbox" value="todo" id="checkbox">
-//         <label for="todo" id="text">${input.value}</label>
-//         <span id="x">&#x2715</span
-//       </div>`;
-//   const position ="beforeend";
-//   list.insertAdjacentHTML(position, textInput);
-// });
-
-// checkBox.addEventListener('click', () => {
-//   checkBox.nextElementSibling.classList.toggle('text');
-
-// });
-
 // element.parentNode.parentNode.removeChild(element.parentNode);
 const addForm = document.querySelector('.add')
 const list = document.querySelector('.list-group-todos');
@@ -44,7 +21,6 @@ addForm.addEventListener('submit', e => {
   generateTemplate(todo);
   // addForm.reset();
   }
-
 });
 
 
@@ -55,7 +31,30 @@ list.addEventListener('click', e => {
   if(e.target.classList.contains('delete')){
     e.target.parentElement.remove();
   }
+});
 
+const getToDos = (callback) => {
+  const request = new XMLHttpRequest();
+  request.addEventListener('readystatechange', () => {
+    // console.log(request, request.readyState);
+    if(request.readyState === 4 && request.status === 200){
+      // console.log(request.responseText);
+      callback(undefined, request.responseText);
+    } else if(request.readyState === 4){
+      callback('could not fetch data', undefined);
+    }
+  });
+  request.open('GET', 'https://jsonplaceholder.typicode.com/todoss/');
+  request.send();
+};
+
+getToDos((err, data) => {
+  console.log('callback fired');
+  if(err){
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 
